@@ -1,0 +1,43 @@
+# Grocery Store Inventory Management
+
+# Initialize an empty inventory
+inventory = {}
+
+def add_item(item_name, quantity):
+    """Add a new item to the inventory or update its quantity if it already exists."""
+    if item_name in inventory:
+        # If the item already exists, update its quantity
+        inventory[item_name] += quantity
+        print(f"Updated quantity of {item_name} in the inventory.")
+    else:
+        # If the item is new, add it to the inventory
+        inventory[item_name] = quantity
+        print(f"Added {item_name} to the inventory.")
+
+def view_inventory():
+    """View the current inventory."""
+    if not inventory:
+        print("The inventory is empty.")
+    else:
+        print("Current Inventory:")
+        for item, quantity in inventory.items():
+            print(f"{item}: {quantity}")
+
+def remove_item(item_name):
+    """Remove an item from the inventory."""
+    if item_name in inventory:
+        del inventory[item_name]
+        print(f"Removed {item_name} from the inventory.")
+    else:
+        print(f"{item_name} not found in the inventory.")
+
+# Example Usage
+add_item("Apples", 50)
+add_item("Bananas", 30)
+view_inventory()
+
+add_item("Apples", 20)
+view_inventory()
+
+remove_item("Bananas")
+view_inventory()
